@@ -11,7 +11,7 @@ function App() {
     <>
       <Header />
 
-    
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/artist/:id" element={<Artist />} />
         <Route path="/artists" element={<Artists />} />

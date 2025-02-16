@@ -1,7 +1,4 @@
-import { shuffleArray } from "../../utils/shuffle.js";
-import { getArtists } from "../../utils/api.js";
-
-export const artistArray = await getArtists();
+// const array = [{ chave: 2 }, { chave2: 51 }, 3, "valor", "valor2"];
 
 // export const artistArray = [
 //   {
@@ -128,14 +125,6 @@ export const artistArray = await getArtists();
 //   },
 // ];
 
-export const artistsIndexedById = artistArray.reduce((acc, currentObj) => {
-  acc[currentObj._id] = currentObj;
-  return acc;
-}, {});
+import { artistArray } from "../../../api/api.js";
 
-export const artistsIndexedByName = artistArray.reduce((acc, currentObj) => {
-  acc[currentObj.name] = currentObj;
-  return acc;
-}, {});
-
-shuffleArray(artistArray);
+export { artistArray };

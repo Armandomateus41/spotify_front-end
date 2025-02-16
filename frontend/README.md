@@ -19,32 +19,6 @@ Estrutura de Pastas
 
 A estrutura do projeto está organizada da seguinte maneira:
 
-frontend/
-│── node_modules/          # Dependências do projeto
-│── public/                # Arquivos estáticos
-│── src/
-│   ├── assets/            # Imagens e ícones
-│   ├── components/        # Componentes reutilizáveis
-│   │   ├── Header.jsx     # Cabeçalho do site
-│   │   ├── Main.jsx       # Componente principal
-│   ├── pages/             # Páginas principais
-│   │   ├── Home/          # Página inicial
-│   │   │   ├── Home.jsx
-│   │   ├── Songs/         # Página de músicas
-│   │   │   ├── Songs.jsx
-│   │   │   ├── Song.jsx
-│   │   ├── Artists/       # Página de artistas
-│   │   │   ├── Artists.jsx
-│   │   ├── SongItem.jsx   # Detalhe de cada música
-│   ├── utils/             # Funções utilitárias
-│   │   ├── api.js         # Configuração da API
-│   │   ├── shuffle.js     # Função para embaralhar playlists
-│   ├── App.jsx            # Arquivo principal do React
-│   ├── main.jsx           # Ponto de entrada da aplicação
-│── .gitignore             # Arquivos ignorados pelo Git
-│── package.json           # Configurações do projeto
-│── vite.config.js         # Configuração do Vite
-│── README.md              # Documentação do projeto
 
 Configuração do Projeto
 git clone https://github.com/Armandomateus41/spotify_frontend.git

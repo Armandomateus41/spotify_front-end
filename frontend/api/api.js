@@ -1,23 +1,31 @@
 import axios from "axios";
 
-// Definir a URL da API dinamicamente, baseada no ambiente
-const URL = import.meta.env.VITE_API_URL || "https://spotify-backend.onrender.com/api";
+// Define a URL da API dinamicamente, baseada no ambiente
+const URL = import.meta.env.VITE_API_URL || "https://spotify-backend-de6i.onrender.com/api";
 
+// Arrays para armazenar os dados dos artistas e músicas
 export let artistArray = [];
 export let songsArray = [];
 
-// Função para buscar os dados com tratamento de erro
+/**
+ * Função para buscar os dados da API com tratamento de erros
+ */
 const fetchData = async () => {
   try {
-    const responseArtists = await axios.get(`${URL}/artists`);
-    const responseSongs = await axios.get(`${URL}/songs`);
+    console.log(`🔄 Buscando dados da API: ${URL}`);
 
-    // Verifica se os dados foram recebidos corretamente
+    // Requisições assíncronas simultâneas para artistas e músicas
+    const [responseArtists, responseSongs] = await Promise.all([
+      axios.get(`${URL}/artists`),
+      axios.get(`${URL}/songs`),
+    ]);
+
+    // Atualiza os arrays globais com os dados recebidos ou mantém vazio caso falhe
     artistArray = responseArtists.data || [];
     songsArray = responseSongs.data || [];
 
-    console.log("Artistas carregados:", artistArray.length);
-    console.log("Músicas carregadas:", songsArray.length);
+    console.log(`Artistas carregados: ${artistArray.length}`);
+    console.log(`Músicas carregadas: ${songsArray.length}`);
   } catch (error) {
     console.error("Erro ao buscar dados da API:", error);
     artistArray = [];
@@ -25,7 +33,7 @@ const fetchData = async () => {
   }
 };
 
-// Chamar a função para carregar os dados ao iniciar
+// Chama a função para carregar os dados na inicialização do aplicativo
 fetchData();
 
-export { fetchData };
+export { fetchData, URL };
